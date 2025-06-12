@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webflow Extension - Elements</title>
+  <link rel="stylesheet" href="../src/css/main.css">
+  <link rel="stylesheet" href="../src/css/pages/elements.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Navigation -->
+    <nav class="navigation">
+      <div class="nav-brand">
+        <h2>Webflow Extension</h2>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Dashboard</a></li>
+        <li><a href="custom-code.html" class="nav-link">Custom Code</a></li>
+        <li><a href="elements.html" class="nav-link active">Elements</a></li>
+        <li><a href="sites.html" class="nav-link">Sites</a></li>
+      </ul>
+      <div class="nav-user">
+        <span id="user-name">Loading...</span>
+        <button id="logout-btn" class="btn btn-secondary">Logout</button>
+      </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="elements-header">
+        <h1>Element Inspector</h1>
+        <button id="refresh-elements-btn" class="btn btn-primary">Refresh Elements</button>
+      </div>
+      
+      <!-- Element Selection -->
+      <div class="element-selection">
+        <h2>Select Element</h2>
+        <button id="select-element-btn" class="btn btn-secondary">Select Element from Canvas</button>
+        <div id="selected-element-info" class="selected-element-info hidden">
+          <h3>Selected Element</h3>
+          <div id="element-details">
+            <!-- Element details will be populated here -->
+          </div>
+        </div>
+      </div>
+      
+      <!-- Element Properties -->
+      <div id="element-properties" class="element-properties hidden">
+        <h2>Element Properties</h2>
+        <div id="properties-list">
+          <!-- Properties will be populated here by TypeScript -->
+        </div>
+      </div>
+      
+      <!-- Element Actions -->
+      <div id="element-actions" class="element-actions hidden">
+        <h2>Actions</h2>
+        <div class="action-buttons">
+          <button id="apply-script-btn" class="btn btn-primary">Apply Script</button>
+          <button id="inspect-children-btn" class="btn btn-secondary">Inspect Children</button>
+          <button id="get-styles-btn" class="btn btn-secondary">Get Styles</button>
+        </div>
+      </div>
+      
+      <!-- Loading State -->
+      <div id="elements-loading" class="loading-spinner hidden">
+        <div class="spinner"></div>
+        <p>Loading element data...</p>
+      </div>
+      
+      <!-- Error State -->
+      <div id="elements-error" class="error-message hidden">
+        <p>Failed to load element data. Please try again.</p>
+        <button id="retry-elements-btn" class="btn btn-secondary">Retry</button>
+      </div>
+    </main>
+  </div>
+  
+  <script type="module" src="../src/ts/pages/elements-controller.ts"></script>
+</body>
+</html>

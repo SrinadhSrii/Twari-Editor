@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webflow Extension - Authentication</title>
+  <link rel="stylesheet" href="../src/css/main.css">
+  <link rel="stylesheet" href="../src/css/pages/auth.css">
+</head>
+<body>
+  <div class="app-container">
+    <main class="auth-container">
+      <div class="auth-card">
+        <div class="auth-header">
+          <h1>Webflow Extension</h1>
+          <p>Please authenticate to continue</p>
+        </div>
+        
+        <div class="auth-content">
+          <!-- Loading State -->
+          <div id="auth-loading" class="auth-loading">
+            <div class="spinner"></div>
+            <p>Authenticating...</p>
+          </div>
+          
+          <!-- Login Button -->
+          <div id="auth-form" class="auth-form">
+            <button id="login-btn" class="btn btn-primary btn-large">Login with Webflow</button>
+          </div>
+          
+          <!-- Error State -->
+          <div id="auth-error" class="auth-error hidden">
+            <p class="error-text">Authentication failed. Please try again.</p>
+            <button id="retry-auth-btn" class="btn btn-secondary">Retry</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <script type="module" src="../src/ts/pages/auth-controller.ts"></script>
+</body>
+</html>

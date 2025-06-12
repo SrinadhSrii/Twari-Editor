@@ -1,0 +1,266 @@
+/* Card components */
+.site-card {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid #e0e0e0;
+}
+
+.site-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.site-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.site-card-header h3 {
+  margin: 0;
+  color: #333;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.site-status {
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.site-status.published {
+  background-color: #e8f5e8;
+  color: #2e7d32;
+}
+
+.site-status.draft {
+  background-color: #fff3e0;
+  color: #f57c00;
+}
+
+.site-card-body {
+  margin-bottom: 1.5rem;
+}
+
+.site-short-name {
+  font-family: 'Courier New', monospace;
+  background-color: #f5f5f5;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  margin: 0.5rem 0;
+  color: #666;
+}
+
+.site-domain {
+  color: #1976d2;
+  font-weight: 500;
+  margin: 0.5rem 0;
+}
+
+.site-date {
+  color: #666;
+  font-size: 0.875rem;
+  margin: 0.25rem 0;
+}
+
+.site-card-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* Script item cards */
+.script-item {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.script-item:hover {
+  border-color: #1976d2;
+}
+
+.script-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.script-header h3 {
+  margin: 0;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.script-location {
+  background-color: #e3f2fd;
+  color: #1976d2;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.script-description {
+  color: #666;
+  margin: 0.5rem 0 1rem 0;
+  line-height: 1.5;
+}
+
+.script-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px solid #f0f0f0;
+}
+
+.script-date {
+  color: #888;
+  font-size: 0.875rem;
+}
+
+/* Grid layouts */
+.sites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+/* Element info cards */
+.element-basic-info,
+.element-styles,
+.element-attributes {
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.element-basic-info p,
+.element-styles p,
+.element-attributes p {
+  margin: 0.5rem 0;
+}
+
+.element-styles h4,
+.element-attributes h4 {
+  margin: 0 0 0.5rem 0;
+  color: #333;
+  font-size: 1rem;
+}
+
+.element-styles pre,
+.element-attributes pre {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 1rem;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+/* Success message */
+.success-message {
+  background-color: #e8f5e8;
+  border: 1px solid #4caf50;
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.success-message p {
+  color: #2e7d32;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Status indicators */
+.status-running {
+  color: #4caf50;
+}
+
+.status-error {
+  color: #f44336;
+}
+
+.status-stopped {
+  color: #ff9800;
+}
+
+/* Dev tools */
+.dev-tools {
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+.dev-tools h3 {
+  margin: 0 0 1rem 0;
+  color: #333;
+  font-size: 1rem;
+}
+
+.dev-tools-panel {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sites-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .site-card {
+    padding: 1rem;
+  }
+  
+  .site-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .site-card-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .script-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .script-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .dev-tools-panel {
+    flex-direction: column;
+  }
+}

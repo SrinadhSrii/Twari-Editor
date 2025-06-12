@@ -134,3 +134,5 @@ dist
 .yarn/install-state.gz
 .pnp.*
 backend/backend_migration_steps.mdx
+frontend-backend-analysis.mdx
+react-to-vanilla-conversion-guide.mdx

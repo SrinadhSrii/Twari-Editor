@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webflow Extension - Sites</title>
+  <link rel="stylesheet" href="../src/css/main.css">
+  <link rel="stylesheet" href="../src/css/pages/sites.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Navigation -->
+    <nav class="navigation">
+      <div class="nav-brand">
+        <h2>Webflow Extension</h2>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Dashboard</a></li>
+        <li><a href="custom-code.html" class="nav-link">Custom Code</a></li>
+        <li><a href="elements.html" class="nav-link">Elements</a></li>
+        <li><a href="sites.html" class="nav-link active">Sites</a></li>
+      </ul>
+      <div class="nav-user">
+        <span id="user-name">Loading...</span>
+        <button id="logout-btn" class="btn btn-secondary">Logout</button>
+      </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="sites-header">
+        <h1>Sites Management</h1>
+        <div class="header-actions">
+          <button id="refresh-sites-btn" class="btn btn-primary">Refresh Sites</button>
+          <button id="sync-sites-btn" class="btn btn-secondary">Sync with Webflow</button>
+        </div>
+      </div>
+      
+      <!-- Sites Filter -->
+      <div class="sites-filter">
+        <input type="text" id="search-sites" placeholder="Search sites..." class="search-input">
+        <select id="filter-status" class="filter-select">
+          <option value="all">All Sites</option>
+          <option value="published">Published</option>
+          <option value="draft">Draft</option>
+        </select>
+      </div>
+      
+      <!-- Loading State -->
+      <div id="sites-loading" class="loading-spinner">
+        <div class="spinner"></div>
+        <p>Loading sites...</p>
+      </div>
+      
+      <!-- Sites Grid -->
+      <div id="sites-grid" class="sites-grid hidden">
+        <!-- Sites will be populated here by TypeScript -->
+      </div>
+      
+      <!-- Empty State -->
+      <div id="sites-empty" class="empty-state hidden">
+        <h2>No Sites Found</h2>
+        <p>No sites match your current filter criteria.</p>
+        <button id="clear-filters-btn" class="btn btn-secondary">Clear Filters</button>
+      </div>
+      
+      <!-- Error State -->
+      <div id="sites-error" class="error-message hidden">
+        <p>Failed to load sites. Please try again.</p>
+        <button id="retry-sites-btn" class="btn btn-secondary">Retry</button>
+      </div>
+      
+      <!-- Site Details Modal -->
+      <div id="site-modal" class="modal hidden">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 id="modal-site-name">Site Details</h2>
+            <button id="close-modal-btn" class="close-btn">&times;</button>
+          </div>
+          <div class="modal-body">
+            <div id="site-details">
+              <!-- Site details will be populated here -->
+            </div>
+            <div class="modal-actions">
+              <button id="manage-scripts-btn" class="btn btn-primary">Manage Scripts</button>
+              <button id="view-pages-btn" class="btn btn-secondary">View Pages</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <script type="module" src="../src/ts/pages/sites-controller.ts"></script>
+</body>
+</html>

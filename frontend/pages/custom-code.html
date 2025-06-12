@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webflow Extension - Custom Code</title>
+  <link rel="stylesheet" href="../src/css/main.css">
+  <link rel="stylesheet" href="../src/css/pages/custom-code.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Navigation -->
+    <nav class="navigation">
+      <div class="nav-brand">
+        <h2>Webflow Extension</h2>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Dashboard</a></li>
+        <li><a href="custom-code.html" class="nav-link active">Custom Code</a></li>
+        <li><a href="elements.html" class="nav-link">Elements</a></li>
+        <li><a href="sites.html" class="nav-link">Sites</a></li>
+      </ul>
+      <div class="nav-user">
+        <span id="user-name">Loading...</span>
+        <button id="logout-btn" class="btn btn-secondary">Logout</button>
+      </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="custom-code-header">
+        <h1>Custom Code Management</h1>
+        <button id="register-script-btn" class="btn btn-primary">Register New Script</button>
+      </div>
+      
+      <!-- Script Registration Form -->
+      <div id="script-form" class="script-form hidden">
+        <h2>Register Script</h2>
+        <form id="register-form">
+          <div class="form-group">
+            <label for="script-name">Script Name</label>
+            <input type="text" id="script-name" name="name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="script-code">Script Code</label>
+            <textarea id="script-code" name="code" rows="10" required></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label for="script-location">Location</label>
+            <select id="script-location" name="location" required>
+              <option value="head">Head</option>
+              <option value="body">Body</option>
+              <option value="footer">Footer</option>
+            </select>
+          </div>
+          
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Register Script</button>
+            <button type="button" id="cancel-form-btn" class="btn btn-secondary">Cancel</button>
+          </div>
+        </form>
+      </div>
+      
+      <!-- Scripts List -->
+      <div id="scripts-container" class="scripts-container">
+        <h2>Registered Scripts</h2>
+        <div id="scripts-loading" class="loading-spinner">
+          <div class="spinner"></div>
+          <p>Loading scripts...</p>
+        </div>
+        
+        <div id="scripts-list" class="scripts-list hidden">
+          <!-- Scripts will be populated here by TypeScript -->
+        </div>
+        
+        <div id="scripts-empty" class="empty-state hidden">
+          <p>No scripts registered yet.</p>
+        </div>
+      </div>
+      
+      <!-- Application Status -->
+      <div id="status-container" class="status-container">
+        <h2>Application Status</h2>
+        <div id="status-loading" class="loading-spinner">
+          <div class="spinner"></div>
+          <p>Loading status...</p>
+        </div>
+        
+        <div id="status-content" class="status-content hidden">
+          <!-- Status will be populated here by TypeScript -->
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <script type="module" src="../src/ts/pages/custom-code-controller.ts"></script>
+</body>
+</html>

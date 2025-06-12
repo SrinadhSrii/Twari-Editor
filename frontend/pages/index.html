@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webflow Extension - Dashboard</title>
+  <link rel="stylesheet" href="../src/css/main.css">
+  <link rel="stylesheet" href="../src/css/pages/dashboard.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Navigation -->
+    <nav class="navigation">
+      <div class="nav-brand">
+        <h2>Webflow Extension</h2>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link active">Dashboard</a></li>
+        <li><a href="custom-code.html" class="nav-link">Custom Code</a></li>
+        <li><a href="elements.html" class="nav-link">Elements</a></li>
+        <li><a href="sites.html" class="nav-link">Sites</a></li>
+      </ul>
+      <div class="nav-user">
+        <span id="user-name">Loading...</span>
+        <button id="logout-btn" class="btn btn-secondary">Logout</button>
+      </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="dashboard-header">
+        <h1 id="welcome-message">Loading...</h1>
+      </div>
+      
+      <div class="dashboard-actions">
+        <button id="fetch-sites-btn" class="btn btn-primary">List Authorized Sites</button>
+      </div>
+      
+      <!-- Loading State -->
+      <div id="loading-spinner" class="loading-spinner hidden">
+        <div class="spinner"></div>
+        <p>Loading sites...</p>
+      </div>
+      
+      <!-- Sites Table -->
+      <div id="sites-container" class="sites-container hidden">
+        <h2>Authorized Sites</h2>
+        <table id="sites-table" class="sites-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Created</th>
+              <th>Last Updated</th>
+              <th>Last Published</th>
+            </tr>
+          </thead>
+          <tbody id="sites-tbody">
+            <!-- Sites will be populated here by TypeScript -->
+          </tbody>
+        </table>
+      </div>
+      
+      <!-- Error State -->
+      <div id="error-message" class="error-message hidden">
+        <p>Failed to load sites. Please try again.</p>
+        <button id="retry-btn" class="btn btn-secondary">Retry</button>
+      </div>
+    </main>
+    
+    <!-- Dev Tools -->
+    <div id="dev-tools" class="dev-tools hidden">
+      <button id="toggle-dev-tools" class="dev-tools-toggle">🔧</button>
+      <div class="dev-tools-panel">
+        <h3>Development Tools</h3>
+        <button id="clear-cache-btn" class="btn btn-small">Clear Cache</button>
+        <button id="refresh-auth-btn" class="btn btn-small">Refresh Auth</button>
+      </div>
+    </div>
+  </div>
+  
+  <script type="module" src="../src/ts/pages/dashboard-controller.ts"></script>
+</body>
+</html>
