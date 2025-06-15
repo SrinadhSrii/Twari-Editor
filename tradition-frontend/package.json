@@ -1,0 +1,14 @@
+{
+  "name": "simple-frontend",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite --port 1337",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@webflow/designer-extension-typings": "^2.0.12",
+    "chokidar": "^4.0.3",
+    "vite": "^5.0.0"
+  }
+}

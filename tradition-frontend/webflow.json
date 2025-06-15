@@ -1,0 +1,6 @@
+{
+    "name": "simple-frontend-app",
+    "publicDir": ".",
+    "size": "default",
+    "apiVersion": "2"
+  }
