@@ -1,12 +1,12 @@
 # Hybrid App Starter
 
-A starter project for creating a Webflow Hybrid App that demonstrates OAuth authentication from the Webflow UI and basic Data and Designer API interactions. This project provides a simple example of how to:
+A starter project for creating a Webflow Hybrid App that demonstrates OAuth authentication from a simple frontend and basic Data and Designer API interactions. This project provides a simple example of how to:
 
-- [Set up a Webflow Data Client server](https://developers.webflow.com/v2.0.0/data/docs/getting-started-data-clients)
-- [Set up a Webflow Designer Extension frontend](https://developers.webflow.com/v2.0.0/designer/docs/getting-started-designer-extensions)
-- [Authenticate from the Designer Extension](https://developers.webflow.com/v2.0.0/data/docs/authenticating-users-with-id-tokens)
-- [Make Data API calls](https://developers.webflow.com/designer/reference/introduction)
-- [Make Designer API calls](https://developers.webflow.com/designer/reference/introduction)
+- Set up a Webflow Backend server (formerly Data Client)
+- Set up a simple, vanilla JavaScript frontend for authentication
+- Authenticate users via OAuth flow
+- Make Data API calls
+- Make Designer API calls
 
 ## 🚀 Quick start
 
@@ -33,7 +33,7 @@ A starter project for creating a Webflow Hybrid App that demonstrates OAuth auth
    yarn global add @webflow/cli
    ```
 
-5. Navigate to the `/data-client` folder and create a `.env` file by copying `.env.example`. Fill in your app credentials, which can be found in your Webflow Dashboard under Integrations > App Development > Your App Details:
+5. Navigate to the `/backend` folder and create a `.env` file by copying `.env.example`. Fill in your app credentials, which can be found in your Webflow Dashboard under Integrations > App Development > Your App Details:
 
    ```env
    WEBFLOW_CLIENT_ID=xxx
@@ -42,15 +42,13 @@ A starter project for creating a Webflow Hybrid App that demonstrates OAuth auth
    PORT=3000
    ```
 
-6. Run the Data Client and Designer Extension together as a Hybrid App. The run command will install the dependencies and start the server and the designer extension:
+6. Run the Backend and Simple Frontend together as a Hybrid App. The run command will install the dependencies and start both servers:
 
    ```bash
    npm run dev
-   # or
-   yarn dev
    ```
 
-7. Install your app by navigating to `http://localhost:3000` in your web browser. This will redirect you to the Webflow Authorization page where you can authorize the app for your workspace.
+7. Install your app by navigating to `http://localhost:3000/auth.html` in your web browser. This will redirect you to the Webflow Authorization page where you can authorize the app for your workspace.
 
 8. Open your Webflow Site. Open the Apps panel and click on your App. When the panel opens click the "Launch Development App" button
 
@@ -58,13 +56,11 @@ A starter project for creating a Webflow Hybrid App that demonstrates OAuth auth
 
 ## 🛠️ Tech Stack
 
-- Data Client:
+- Backend:
   - **[Webflow SDK](https://github.com/webflow/js-webflow-api)** - Official Webflow API client
-- Designer Extension:
-  - **[Webflow Designer API](https://www.npmjs.com/package/@webflow/designer-extension-typings?activeTab=readme)** - Official Webflow Designer API client
+- Frontend:
   - **[Vite](https://vitejs.dev/)** - Build tool for modern web development
   - **[JWT-Decode](https://github.com/auth0/jwt-decode)** - Decode JWT tokens
-  - **[React](https://reactjs.org/)** - JavaScript library for building user interfaces
 
 ## 📝 Important Notes
 
@@ -81,18 +77,25 @@ A starter project for creating a Webflow Hybrid App that demonstrates OAuth auth
 
 ```
 .
-├── data-client/                      # Backend server
-│   ├── app/
+├── backend/                          # Backend server (formerly data-client)
+│   ├── src/
 │   │   ├── api/                     # API Routes
 │   │   │   ├── auth/               # Auth endpoints
 │   │   │   └── custom-code/        # Custom code endpoints
-│   │   ├── lib/                    # Server utilities
-│   │   │   ├── controllers/        # Logic for handling requests and responses using the Webflow SDK
+│   │   ├── services/               # Server utilities and logic
 │   │   └── db/                     # Database
 │   ├── .env.example                # Environment template
 │   └── package.json
 │
-├── designer-extension/              # Frontend app
+├── frontend/                       # Simple authentication frontend
+│   ├── auth.html                   # Login page
+│   ├── index.html                  # Dashboard page
+│   ├── style.css                   # Basic styling
+│   ├── app.js                      # Client-side logic
+│   ├── vite.config.js              # Vite configuration
+│   └── package.json
+│
+├── designer-extension/              # Original Designer Extension (now separate)
 │   ├── src/
 │   │   ├── components/             # React components
 │   │   ├── hooks/                  # Custom hooks
@@ -101,7 +104,8 @@ A starter project for creating a Webflow Hybrid App that demonstrates OAuth auth
 │   │   └── App.tsx                 # Main app component
 │   ├── .env.development            # Dev environment variables
 │   └── package.json
-│└── package.json                     # Root package.json
+│
+└── package.json                     # Root package.json
 ```
 
 ## 📚 Additional Resources

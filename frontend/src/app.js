@@ -1,3 +1,5 @@
+import { jwtDecode } from 'jwt-decode';
+
 window.addEventListener('DOMContentLoaded', () => {
     // --- Helper Functions to manage the session token ---
     const storageKey = 'app_token';
@@ -5,7 +7,19 @@ window.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem(storageKey, token);
     }
     function getToken() {
-        return localStorage.getItem(storageKey);
+        const token = localStorage.getItem(storageKey);
+        if (token) {
+            try {
+                const decodedToken = jwtDecode(token);
+                console.log('Decoded token:', decodedToken);
+            } catch (error) {
+                console.error('Error decoding token:', error);
+                // Optionally, clear the invalid token
+                // clearToken(); 
+                // return null;
+            }
+        }
+        return token;
     }
     function clearToken() {
         localStorage.removeItem(storageKey);
@@ -93,9 +107,23 @@ window.addEventListener('DOMContentLoaded', () => {
     // Logic for the DASHBOARD page (index.html)
     if (document.getElementById('logout-button')) {
         // If the user lands here but has no token, send them to log in
-        if (!getToken()) {
+        const token = getToken();
+        if (!token) {
             window.location.href = '/auth.html';
             return;
+        }
+
+        // Example of using jwtDecode directly in the page logic
+        try {
+            const decoded = jwtDecode(token);
+            console.log('Decoded token on dashboard:', decoded);
+            // You can now use `decoded` to access claims, e.g., decoded.userId
+            // For example, to display a welcome message:
+            // const welcomeMessage = document.createElement('p');
+            // welcomeMessage.textContent = `Welcome, user ${decoded.sub}!`; // Assuming 'sub' claim exists
+            // document.body.insertBefore(welcomeMessage, document.getElementById('logout-button'));
+        } catch (error) {
+            console.error('Error decoding token on dashboard:', error);
         }
 
         // Handle logout
